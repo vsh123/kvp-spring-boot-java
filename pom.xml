@@ -6,7 +6,8 @@
 	<modules>
 		<module>kvp-spring-boot-starter</module>
 		<module>kvp-spring-boot-web</module>
-	</modules>
+        <module>kvp-spring-boot-web-undertow</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
