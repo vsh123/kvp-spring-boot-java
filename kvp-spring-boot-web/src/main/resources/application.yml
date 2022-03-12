@@ -1,3 +1,13 @@
 van:
   name: sunho
   age: 30
+
+spring:
+  profiles:
+    group:
+      prod:
+        - prod-age
+        - prod-name
+      beta:
+        - beta-name
+        - beta-age
