@@ -11,3 +11,6 @@ spring:
       beta:
         - beta-name
         - beta-age
+#logging:
+#  level:
+#    aaaaaa: debug
