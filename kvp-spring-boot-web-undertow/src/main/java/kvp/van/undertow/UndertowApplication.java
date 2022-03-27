@@ -1,4 +1,4 @@
-package kvp.van.tomcat;
+package kvp.van.undertow;
 
 import io.undertow.servlet.api.SecurityConstraint;
 import io.undertow.servlet.api.SecurityInfo;
@@ -15,11 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class UndertowApplication {
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello";
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(UndertowApplication.class);
     }
