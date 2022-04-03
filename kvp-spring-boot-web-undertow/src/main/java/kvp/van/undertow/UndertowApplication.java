@@ -19,19 +19,19 @@ public class UndertowApplication {
         SpringApplication.run(UndertowApplication.class);
     }
 
-    @Bean
-    public ServletWebServerFactory serverFactory() {
-        final UndertowServletWebServerFactory factory = new UndertowServletWebServerFactory();
-        factory.addBuilderCustomizers(builder ->
-            builder.addHttpListener(8080, "0.0.0.0")
-        );
-
-        factory.addDeploymentInfoCustomizers(deploymentInfo -> deploymentInfo.addSecurityConstraint(
-                new SecurityConstraint()
-                    .addWebResourceCollection(new WebResourceCollection().addUrlPattern("/*"))
-                    .setTransportGuaranteeType(TransportGuaranteeType.CONFIDENTIAL)
-                    .setEmptyRoleSemantic(SecurityInfo.EmptyRoleSemantic.PERMIT))
-                    .setConfidentialPortManager(exchange -> 8443));
-        return factory;
-    }
+//    @Bean
+//    public ServletWebServerFactory serverFactory() {
+//        final UndertowServletWebServerFactory factory = new UndertowServletWebServerFactory();
+//        factory.addBuilderCustomizers(builder ->
+//            builder.addHttpListener(8080, "0.0.0.0")
+//        );
+//
+//        factory.addDeploymentInfoCustomizers(deploymentInfo -> deploymentInfo.addSecurityConstraint(
+//                new SecurityConstraint()
+//                    .addWebResourceCollection(new WebResourceCollection().addUrlPattern("/*"))
+//                    .setTransportGuaranteeType(TransportGuaranteeType.CONFIDENTIAL)
+//                    .setEmptyRoleSemantic(SecurityInfo.EmptyRoleSemantic.PERMIT))
+//                    .setConfidentialPortManager(exchange -> 8443));
+//        return factory;
+//    }
 }

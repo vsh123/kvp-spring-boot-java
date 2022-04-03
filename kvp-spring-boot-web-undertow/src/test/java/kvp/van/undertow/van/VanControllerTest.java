@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -39,5 +40,13 @@ class VanControllerTest {
             .andExpect(status().isCreated())
             .andExpect(jsonPath("$.username", is(equalTo("van"))))
             .andExpect(jsonPath("$.password", is(equalTo("123"))));
+    }
+
+    @Test
+    void hello() throws Exception {
+        mockMvc.perform(get("/hateoas"))
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$._links.self").exists());
     }
 }
