@@ -12,6 +12,15 @@ services:
       - "23306:3306"
     volumes:
       - ./mysql-init.d:/docker-entrypoint-initdb.d
+  kvp-postgresql:
+    container_name: kvp-postgresql142
+    image: postgres:14.2
+    environment:
+      POSTGRES_PASSWORD: kvp-admin
+      POSTGRES_USER: kvp-admin
+      POSTGRES_DB: kvp_springboot
+    ports:
+      - "25432:5432"
   kvp-adminer:
     image: adminer
     ports:
