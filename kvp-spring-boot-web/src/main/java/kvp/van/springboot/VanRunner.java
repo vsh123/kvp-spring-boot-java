@@ -1,24 +1,29 @@
 package kvp.van.springboot;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
 
 @Component
 public class VanRunner implements ApplicationRunner {
-    private final Van van;
+    private final DataSource dataSource;
+    private final JdbcTemplate jdbcTemplate;
 
-    private Logger logger = LoggerFactory.getLogger("aaaaaa");
-
-    public VanRunner(Van van) {
-        this.van = van;
+    public VanRunner(DataSource dataSource, JdbcTemplate jdbcTemplate) {
+        this.dataSource = dataSource;
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        logger.debug("hello dubug Van!");
-        System.out.println(van);
+        try (Connection connection = dataSource.getConnection()) {
+            System.out.println(dataSource.getClass());
+            System.out.println(connection.getMetaData().getURL());
+            System.out.println(connection.getMetaData().getUserName());
+        }
     }
 }
