@@ -16,6 +16,12 @@ spring:
     url: jdbc:postgresql://localhost:25432/kvp_springboot
     username: kvp-admin
     password: kvp-admin
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+#    generate-ddl: true
+
 
 #logging:
 #  level:
