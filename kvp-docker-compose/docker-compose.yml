@@ -29,3 +29,10 @@ services:
       - ADMINER_DEFAULT_SERVER=kvp-mysql80
       - ADMINER_DESIGN=nette
       - ADMINER_PLUGINS=tables-filter tinymce
+  kvp-redis:
+    container_name: kvp-redis
+    image: redis:6.0.5
+    ports:
+      - "26379:6379"
+    environment:
+      - REDIS_REPLICATION_MODE=master
