@@ -8,6 +8,7 @@
 		<module>kvp-spring-boot-web</module>
         <module>kvp-spring-boot-web-undertow</module>
 		<module>kvp-spring-boot-mongodb</module>
+		<module>kvp-spring-boot-neo4j</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
