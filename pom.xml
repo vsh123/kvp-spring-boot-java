@@ -11,6 +11,8 @@
 		<module>kvp-spring-boot-neo4j</module>
         <module>kvp-spring-boot-security</module>
         <module>kvp-spring-boot-rest</module>
+        <module>kvp-spring-boot-actuator</module>
+        <module>kvp-spring-boot-admin</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
